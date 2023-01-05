@@ -722,6 +722,258 @@
         }
       }
     },
+    "/calling/callConnections/{callConnectionId}/participants:muteAll": {
+      "post": {
+        "tags": [
+          "MidConnections"
+        ],
+        "summary": "Mute participant from the call using identifier.",
+        "description": "Remove participant from the call using identifier.",
+        "operationId": "calling/callConnectionsMute",
+        "parameters": [
+          {
+            "name": "callConnectionId",
+            "in": "path",
+            "description": "The call connection id.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "muteAllParticipantsRequest",
+            "in": "body",
+            "description": "The participants to be removed from the call.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MuteAllParticipantsRequest"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "Repeatability-Request-ID",
+            "in": "header",
+            "description": "If specified, the client directs that the request is repeatable; that is, that the client can make the request multiple times with the same Repeatability-Request-Id and get back an appropriate response without the server executing the request multiple times. The value of the Repeatability-Request-Id is an opaque string representing a client-generated unique identifier for the request. It is a version 4 (random) UUID.",
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "Repeatability-First-Sent",
+            "in": "header",
+            "description": "If Repeatability-Request-ID header is specified, then Repeatability-First-Sent header must also be specified. The value should be the date and time at which the request was first created, expressed using the IMF-fixdate form of HTTP-date. Example: Sun, 06 Nov 1994 08:49:37 GMT.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/CommunicationErrorResponse"
+            }
+          },
+          "202": {
+            "description": "Returns the mute participants response",
+            "schema": {
+              "$ref": "#/definitions/MuteParticipantsResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Mute participant from the call using identifier.": {
+            "$ref": "./examples/calling/callConnectionsMute.json"
+          }
+        }
+      }
+    },
+    "/calling/callConnections/{callConnectionId}/participants:unmuteAll": {
+      "post": {
+        "tags": [
+          "MidConnections"
+        ],
+        "summary": "Mute participant from the call using identifier.",
+        "description": "Remove participant from the call using identifier.",
+        "operationId": "calling/callConnectionsUnmute",
+        "parameters": [
+          {
+            "name": "callConnectionId",
+            "in": "path",
+            "description": "The call connection id.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "unmuteAllParticipantsRequest",
+            "in": "body",
+            "description": "The participants to be removed from the call.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UnmuteAllParticipantsRequest"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "Repeatability-Request-ID",
+            "in": "header",
+            "description": "If specified, the client directs that the request is repeatable; that is, that the client can make the request multiple times with the same Repeatability-Request-Id and get back an appropriate response without the server executing the request multiple times. The value of the Repeatability-Request-Id is an opaque string representing a client-generated unique identifier for the request. It is a version 4 (random) UUID.",
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "Repeatability-First-Sent",
+            "in": "header",
+            "description": "If Repeatability-Request-ID header is specified, then Repeatability-First-Sent header must also be specified. The value should be the date and time at which the request was first created, expressed using the IMF-fixdate form of HTTP-date. Example: Sun, 06 Nov 1994 08:49:37 GMT.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/CommunicationErrorResponse"
+            }
+          },
+          "202": {
+            "description": "Returns the unmute participants response",
+            "schema": {
+              "$ref": "#/definitions/UnmuteParticipantsResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Mute participant from the call using identifier.": {
+            "$ref": "./examples/calling/callConnectionsUnmute.json"
+          }
+        }
+      }
+    },
+    "/calling/callConnections/{callConnectionId}/participants:mute": {
+      "post": {
+        "tags": [
+          "MidConnections"
+        ],
+        "summary": "Mute participant from the call using identifier.",
+        "description": "Remove participant from the call using identifier.",
+        "operationId": "calling/callConnectionsMute",
+        "parameters": [
+          {
+            "name": "callConnectionId",
+            "in": "path",
+            "description": "The call connection id.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "muteParticipantsRequest",
+            "in": "body",
+            "description": "The participants to be removed from the call.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MuteParticipantRequest"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "Repeatability-Request-ID",
+            "in": "header",
+            "description": "If specified, the client directs that the request is repeatable; that is, that the client can make the request multiple times with the same Repeatability-Request-Id and get back an appropriate response without the server executing the request multiple times. The value of the Repeatability-Request-Id is an opaque string representing a client-generated unique identifier for the request. It is a version 4 (random) UUID.",
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "Repeatability-First-Sent",
+            "in": "header",
+            "description": "If Repeatability-Request-ID header is specified, then Repeatability-First-Sent header must also be specified. The value should be the date and time at which the request was first created, expressed using the IMF-fixdate form of HTTP-date. Example: Sun, 06 Nov 1994 08:49:37 GMT.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/CommunicationErrorResponse"
+            }
+          },
+          "202": {
+            "description": "Returns the mute participants response",
+            "schema": {
+              "$ref": "#/definitions/MuteParticipantsResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Mute participant from the call using identifier.": {
+            "$ref": "./examples/calling/callConnectionsMute.json"
+          }
+        }
+      }
+    },
+    "/calling/callConnections/{callConnectionId}/participants:unmute": {
+      "post": {
+        "tags": [
+          "MidConnections"
+        ],
+        "summary": "Mute participant from the call using identifier.",
+        "description": "Remove participant from the call using identifier.",
+        "operationId": "calling/callConnectionsUnmute",
+        "parameters": [
+          {
+            "name": "callConnectionId",
+            "in": "path",
+            "description": "The call connection id.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "unmuteParticipantsRequest",
+            "in": "body",
+            "description": "The participants to be removed from the call.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UnmuteParticipantRequest"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "Repeatability-Request-ID",
+            "in": "header",
+            "description": "If specified, the client directs that the request is repeatable; that is, that the client can make the request multiple times with the same Repeatability-Request-Id and get back an appropriate response without the server executing the request multiple times. The value of the Repeatability-Request-Id is an opaque string representing a client-generated unique identifier for the request. It is a version 4 (random) UUID.",
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "Repeatability-First-Sent",
+            "in": "header",
+            "description": "If Repeatability-Request-ID header is specified, then Repeatability-First-Sent header must also be specified. The value should be the date and time at which the request was first created, expressed using the IMF-fixdate form of HTTP-date. Example: Sun, 06 Nov 1994 08:49:37 GMT.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/CommunicationErrorResponse"
+            }
+          },
+          "202": {
+            "description": "Returns the unmute participants response",
+            "schema": {
+              "$ref": "#/definitions/UnmuteParticipantsResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Mute participant from the call using identifier.": {
+            "$ref": "./examples/calling/callConnectionsUnmute.json"
+          }
+        }
+      }
+    },
     "/calling/callConnections/{callConnectionId}/participants/{participantMri}": {
       "get": {
         "tags": [
@@ -1756,6 +2008,79 @@
         }
       }
     },
+    "MuteAllParticipantsRequest": {
+      "description": "The request payload for adding participants to the call.",
+      "type": "object",
+      "properties": {
+        "operationContext": {
+          "description": "Used by customers when calling mid-call actions to correlate the request to the response event.",
+          "type": "string"
+        },
+        "requestInitiator": {
+          "$ref": "#/definitions/CommunicationIdentifierModel",
+          "description": "Used by customers to idenfity the mute request initiator."
+        }
+      }
+    },
+    "MuteParticipantsResponse": {
+      "description": "The response payload for removing participants of the call.",
+      "type": "object",
+      "properties": {
+        "operationContext": {
+          "description": "The operation context provided by client.",
+          "type": "string"
+        }
+      }
+    },
+    "UnmuteAllParticipantsRequest": {
+      "description": "The request payload for adding participants to the call.",
+      "type": "object",
+      "properties": {
+        "operationContext": {
+          "description": "Used by customers when calling mid-call actions to correlate the request to the response event.",
+          "type": "string"
+        }
+      }
+    },
+    "UnmuteParticipantsResponse": {
+      "description": "The response payload for removing participants of the call.",
+      "type": "object",
+      "properties": {
+        "operationContext": {
+          "description": "The operation context provided by client.",
+          "type": "string"
+        }
+      }
+    },
+    "MuteParticipantRequest": {
+      "description": "The request payload for adding participants to the call.",
+      "type": "object",
+      "properties": {
+        "targetParticipant": {
+          "$ref": "#/definitions/CommunicationIdentifierModel"
+        },
+        "operationContext": {
+          "description": "Used by customers when calling mid-call actions to correlate the request to the response event.",
+          "type": "string"
+        }
+      }
+    },
+    "UnmuteParticipantRequest": {
+      "description": "The request payload for adding participants to the call.",
+      "required": [
+        "targetParticipant"
+      ],
+      "type": "object",
+      "properties": {
+        "targetParticipant": {
+          "$ref": "#/definitions/CommunicationIdentifierModel"
+        },
+        "operationContext": {
+          "description": "Used by customers when calling mid-call actions to correlate the request to the response event.",
+          "type": "string"
+        }
+      }
+    },
     "RecordingContentType": {
       "description": "The content type of call recording.",
       "enum": [
@@ -2090,7 +2415,7 @@
           "description": "The list of participants in the call.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/CommunicationIdentifierModel"
+            "$ref": "#/definitions/AcsCallParticipant"
           }
         }
       }
@@ -2265,7 +2590,7 @@
           "type": "string"
         },
         "recognizedPhrase": {
-          "description": "Phrases are set to the value if choice is selected via phrase detection.\r\nIf Dtmf input is recognized, then Label will be the identifier for the choice detected and phrases will be set to null",
+          "description": "Phrases are set to the value if choice is seletected via phrase detection.\r\nIf Dtmf input is recognized, then Label will be the identifier for the choice detected and phrases will be set to null",
           "type": "string"
         }
       }
@@ -2332,7 +2657,6 @@
       "description": "The endpoint of the Azure Communication resource.",
       "required": true,
       "type": "string",
-      "format": "uri",
       "x-ms-skip-url-encoding": true,
       "x-ms-parameter-location": "client"
     }
@@ -2375,19 +2699,12 @@
     }
   },
   "x-ms-parameterized-host": {
-      "hostTemplate": "{endpoint}",
-      "useSchemePrefix": false,
-      "parameters": [
-          {
-              "name": "endpoint",
-              "description": "The endpoint of the Azure Communication resource.",
-              "required": true,
-              "type": "string",
-              "format": "url",
-              "in": "path",
-              "x-ms-skip-url-encoding": true,
-              "x-ms-parameter-location": "client"
-          }
-      ]
+    "hostTemplate": "{endpoint}",
+    "useSchemePrefix": false,
+    "parameters": [
+      {
+        "$ref": "#/parameters/Endpoint"
+      }
+    ]
   }
 }
