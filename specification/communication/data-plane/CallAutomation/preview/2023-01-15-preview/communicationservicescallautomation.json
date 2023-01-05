@@ -729,7 +729,7 @@
         ],
         "summary": "Mute participant from the call using identifier.",
         "description": "Remove participant from the call using identifier.",
-        "operationId": "calling/callConnectionsMute",
+        "operationId": "calling/callConnectionsMuteAll",
         "parameters": [
           {
             "name": "callConnectionId",
@@ -780,7 +780,7 @@
         },
         "x-ms-examples": {
           "Mute participant from the call using identifier.": {
-            "$ref": "./examples/calling/callConnectionsMute.json"
+            "$ref": "./examples/calling/callConnectionsMuteAll.json"
           }
         }
       }
@@ -792,7 +792,7 @@
         ],
         "summary": "Mute participant from the call using identifier.",
         "description": "Remove participant from the call using identifier.",
-        "operationId": "calling/callConnectionsUnmute",
+        "operationId": "calling/callConnectionsUnmuteAll",
         "parameters": [
           {
             "name": "callConnectionId",
@@ -843,7 +843,7 @@
         },
         "x-ms-examples": {
           "Mute participant from the call using identifier.": {
-            "$ref": "./examples/calling/callConnectionsUnmute.json"
+            "$ref": "./examples/calling/callConnectionsUnmuteAll.json"
           }
         }
       }
