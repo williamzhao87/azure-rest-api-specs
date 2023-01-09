@@ -727,8 +727,8 @@
         "tags": [
           "MidConnections"
         ],
-        "summary": "Mute participant from the call using identifier.",
-        "description": "Remove participant from the call using identifier.",
+        "summary": "Mute all participants from the call.",
+        "description": "Mute all participants from the call.",
         "operationId": "calling/callConnectionsMuteAll",
         "parameters": [
           {
@@ -741,7 +741,7 @@
           {
             "name": "muteAllParticipantsRequest",
             "in": "body",
-            "description": "The participants to be removed from the call.",
+            "description": "The participant to be excluded from the mute all operation, if any.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/MuteAllParticipantsRequest"
@@ -779,7 +779,7 @@
           }
         },
         "x-ms-examples": {
-          "Mute participant from the call using identifier.": {
+          "Mute all participants from the call.": {
             "$ref": "./examples/calling/callConnectionsMuteAll.json"
           }
         }
@@ -790,8 +790,8 @@
         "tags": [
           "MidConnections"
         ],
-        "summary": "Mute participant from the call using identifier.",
-        "description": "Remove participant from the call using identifier.",
+        "summary": "Unmute all participants from the call.",
+        "description": "Unmute all participants from the call.",
         "operationId": "calling/callConnectionsUnmuteAll",
         "parameters": [
           {
@@ -804,7 +804,7 @@
           {
             "name": "unmuteAllParticipantsRequest",
             "in": "body",
-            "description": "The participants to be removed from the call.",
+            "description": "Operation context, if any.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/UnmuteAllParticipantsRequest"
@@ -842,7 +842,7 @@
           }
         },
         "x-ms-examples": {
-          "Mute participant from the call using identifier.": {
+          "Unmute all participants from the call.": {
             "$ref": "./examples/calling/callConnectionsUnmuteAll.json"
           }
         }
@@ -854,7 +854,7 @@
           "MidConnections"
         ],
         "summary": "Mute participant from the call using identifier.",
-        "description": "Remove participant from the call using identifier.",
+        "description": "Mute participant from the call using identifier.",
         "operationId": "calling/callConnectionsMute",
         "parameters": [
           {
@@ -865,9 +865,9 @@
             "type": "string"
           },
           {
-            "name": "muteParticipantsRequest",
+            "name": "muteParticipantRequest",
             "in": "body",
-            "description": "The participants to be removed from the call.",
+            "description": "The participant to be muted from the call.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/MuteParticipantRequest"
@@ -916,8 +916,8 @@
         "tags": [
           "MidConnections"
         ],
-        "summary": "Mute participant from the call using identifier.",
-        "description": "Remove participant from the call using identifier.",
+        "summary": "Unmute participant from the call using identifier.",
+        "description": "Unmute participant from the call using identifier.",
         "operationId": "calling/callConnectionsUnmute",
         "parameters": [
           {
@@ -928,9 +928,9 @@
             "type": "string"
           },
           {
-            "name": "unmuteParticipantsRequest",
+            "name": "unmuteParticipantRequest",
             "in": "body",
-            "description": "The participants to be removed from the call.",
+            "description": "The participant to be unmuted from the call.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/UnmuteParticipantRequest"
@@ -968,7 +968,7 @@
           }
         },
         "x-ms-examples": {
-          "Mute participant from the call using identifier.": {
+          "Unmute participant from the call using identifier.": {
             "$ref": "./examples/calling/callConnectionsUnmute.json"
           }
         }
@@ -2009,7 +2009,7 @@
       }
     },
     "MuteAllParticipantsRequest": {
-      "description": "The request payload for adding participants to the call.",
+      "description": "The request payload for muting participants from the call.",
       "type": "object",
       "properties": {
         "operationContext": {
@@ -2023,7 +2023,7 @@
       }
     },
     "MuteParticipantsResponse": {
-      "description": "The response payload for removing participants of the call.",
+      "description": "The response payload for muting participants from the call.",
       "type": "object",
       "properties": {
         "operationContext": {
@@ -2033,7 +2033,7 @@
       }
     },
     "UnmuteAllParticipantsRequest": {
-      "description": "The request payload for adding participants to the call.",
+      "description": "The request payload for unmuting all participants from the call.",
       "type": "object",
       "properties": {
         "operationContext": {
@@ -2043,7 +2043,7 @@
       }
     },
     "UnmuteParticipantsResponse": {
-      "description": "The response payload for removing participants of the call.",
+      "description": "The response payload for unmuting participants from the call.",
       "type": "object",
       "properties": {
         "operationContext": {
@@ -2053,7 +2053,10 @@
       }
     },
     "MuteParticipantRequest": {
-      "description": "The request payload for adding participants to the call.",
+      "description": "The request payload for muting participants from the call.",
+      "required": [
+        "targetParticipant"
+      ],
       "type": "object",
       "properties": {
         "targetParticipant": {
@@ -2066,7 +2069,7 @@
       }
     },
     "UnmuteParticipantRequest": {
-      "description": "The request payload for adding participants to the call.",
+      "description": "The request payload for unmuting participant from the call.",
       "required": [
         "targetParticipant"
       ],
