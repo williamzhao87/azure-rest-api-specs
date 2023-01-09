@@ -729,7 +729,7 @@
         ],
         "summary": "Mute all participants from the call.",
         "description": "Mute all participants from the call.",
-        "operationId": "calling/callConnectionsMuteAll",
+        "operationId": "CallConnections_MuteAll",
         "parameters": [
           {
             "name": "callConnectionId",
@@ -780,7 +780,7 @@
         },
         "x-ms-examples": {
           "Mute all participants from the call.": {
-            "$ref": "./examples/calling/callConnectionsMuteAll.json"
+            "$ref": "./examples/CallConnections_MuteAll.json"
           }
         }
       }
@@ -792,7 +792,7 @@
         ],
         "summary": "Unmute all participants from the call.",
         "description": "Unmute all participants from the call.",
-        "operationId": "calling/callConnectionsUnmuteAll",
+        "operationId": "CallConnections_UnmuteAll",
         "parameters": [
           {
             "name": "callConnectionId",
@@ -843,7 +843,7 @@
         },
         "x-ms-examples": {
           "Unmute all participants from the call.": {
-            "$ref": "./examples/calling/callConnectionsUnmuteAll.json"
+            "$ref": "./examples/CallConnections_UnmuteAll.json"
           }
         }
       }
@@ -855,7 +855,7 @@
         ],
         "summary": "Mute participant from the call using identifier.",
         "description": "Mute participant from the call using identifier.",
-        "operationId": "calling/callConnectionsMute",
+        "operationId": "CallConnections_Mute",
         "parameters": [
           {
             "name": "callConnectionId",
@@ -906,7 +906,7 @@
         },
         "x-ms-examples": {
           "Mute participant from the call using identifier.": {
-            "$ref": "./examples/calling/callConnectionsMute.json"
+            "$ref": "./examples/CallConnections_Mute.json"
           }
         }
       }
@@ -918,7 +918,7 @@
         ],
         "summary": "Unmute participant from the call using identifier.",
         "description": "Unmute participant from the call using identifier.",
-        "operationId": "calling/callConnectionsUnmute",
+        "operationId": "CallConnections_Unmute",
         "parameters": [
           {
             "name": "callConnectionId",
@@ -969,7 +969,7 @@
         },
         "x-ms-examples": {
           "Unmute participant from the call using identifier.": {
-            "$ref": "./examples/calling/callConnectionsUnmute.json"
+            "$ref": "./examples/CallConnections_Unmute.json"
           }
         }
       }
