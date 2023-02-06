@@ -1840,6 +1840,26 @@
         "operationContext": {
           "description": "Used by customers when calling mid-call actions to correlate the request to the response event.",
           "type": "string"
+        },
+        "customContext": {
+          "$ref": "#/definitions/CustomContext"
+        }
+      }
+    },
+    "CustomContext": {
+      "type": "object",
+      "properties": {
+        "voipHeaders": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "sipHeaders": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
         }
       }
     },
@@ -2576,15 +2596,8 @@
     "useSchemePrefix": false,
     "parameters": [
       {
-            "name": "endpoint",
-            "description": "The endpoint of the Azure Communication resource.",
-            "required": true,
-            "type": "string",
-            "format": "url",
-            "in": "path",
-            "x-ms-skip-url-encoding": true,
-            "x-ms-parameter-location": "client"
-        }
+        "$ref": "#/parameters/Endpoint"
+      }
     ]
   }
 }
