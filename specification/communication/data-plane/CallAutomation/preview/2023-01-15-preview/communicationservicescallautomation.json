@@ -613,12 +613,11 @@
             "type": "string"
           },
           {
-            "name": "addParticipantsRequest",
+            "name": "addParticipantRequest",
             "in": "body",
-            "description": "The add participants request.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AddParticipantsRequest"
+              "$ref": "#/definitions/AddParticipantRequest"
             }
           },
           {
@@ -1106,7 +1105,7 @@
       "description": "The request payload for creating the call.",
       "required": [
         "targets",
-        "source",
+        "callSourceIdentifier",
         "callbackUri"
       ],
       "type": "object",
@@ -1118,9 +1117,17 @@
             "$ref": "#/definitions/CommunicationIdentifierModel"
           }
         },
-        "source": {
-          "$ref": "#/definitions/CallSource",
-          "description": "The source of the call."
+        "sourceCallerIdNumber": {
+          "$ref": "#/definitions/PhoneNumberIdentifierModel",
+          "description": "The source caller Id, a phone number, that's shown to the PSTN participant being invited.\r\nRequired only when calling a PSTN callee."
+        },
+        "sourceDisplayName": {
+          "description": "Display name of the call if dialing out to a pstn number",
+          "type": "string"
+        },
+        "callSourceIdentifier": {
+          "$ref": "#/definitions/CommunicationIdentifierModel",
+          "description": "The identifier of the source of the call"
         },
         "operationContext": {
           "description": "A customer set value used to track the answering of a call.",
@@ -1178,24 +1185,14 @@
         }
       }
     },
-    "CallSource": {
-      "description": "The caller.",
+    "PhoneNumberIdentifierModel": {
       "required": [
-        "identifier"
+        "value"
       ],
       "type": "object",
       "properties": {
-        "callerId": {
-          "$ref": "#/definitions/PhoneNumberIdentifierModel",
-          "description": "The source caller Id, a phone number, that's shown to the PSTN participant being invited.\r\nRequired only when calling a PSTN callee."
-        },
-        "displayName": {
-          "description": "Display name of the call if dialing out to a pstn number",
+        "value": {
           "type": "string"
-        },
-        "identifier": {
-          "$ref": "#/definitions/CommunicationIdentifierModel",
-          "description": "The identifier of the source of the call"
         }
       }
     },
@@ -1265,17 +1262,6 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
-        }
-      }
-    },
-    "PhoneNumberIdentifierModel": {
-      "required": [
-        "value"
-      ],
-      "type": "object",
-      "properties": {
-        "value": {
           "type": "string"
         }
       }
@@ -1397,6 +1383,27 @@
         }
       }
     },
+    "CallSource": {
+      "description": "The caller.",
+      "required": [
+        "identifier"
+      ],
+      "type": "object",
+      "properties": {
+        "callerId": {
+          "$ref": "#/definitions/PhoneNumberIdentifierModel",
+          "description": "The source caller Id, a phone number, that's shown to the PSTN participant being invited.\r\nRequired only when calling a PSTN callee."
+        },
+        "displayName": {
+          "description": "Display name of the call if dialing out to a pstn number",
+          "type": "string"
+        },
+        "identifier": {
+          "$ref": "#/definitions/CommunicationIdentifierModel",
+          "description": "The identifier of the source of the call"
+        }
+      }
+    },
     "AnswerCallRequest": {
       "description": "The request payload for answering the call.",
       "required": [
@@ -1420,6 +1427,10 @@
         "azureCognitiveServicesEndpointUrl": {
           "description": "The endpoint URL of the Azure Cognitive Services resource attached",
           "type": "string"
+        },
+        "answeredByIdentifier": {
+          "$ref": "#/definitions/CommunicationIdentifierModel",
+          "description": "The identifier of the contoso app which answers the call"
         }
       }
     },
@@ -1804,10 +1815,10 @@
         }
       }
     },
-    "AddParticipantsRequest": {
-      "description": "The request payload for adding participants to the call.",
+    "AddParticipantRequest": {
+      "description": "The request payload for adding participant to the call.",
       "required": [
-        "participantsToAdd"
+        "participantToAdd"
       ],
       "type": "object",
       "properties": {
@@ -1823,12 +1834,9 @@
           "$ref": "#/definitions/CommunicationIdentifierModel",
           "description": "(Optional) The identifier of the source of the call for this invite operation. If SourceDisplayName\r\nis not set, the display name of the source will be used by default when adding a PSTN participant or teams user."
         },
-        "participantsToAdd": {
-          "description": "The participants to invite.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CommunicationIdentifierModel"
-          }
+        "participantToAdd": {
+          "$ref": "#/definitions/CommunicationIdentifierModel",
+          "description": "The participant to invite."
         },
         "invitationTimeoutInSeconds": {
           "format": "int32",
@@ -1840,6 +1848,26 @@
         "operationContext": {
           "description": "Used by customers when calling mid-call actions to correlate the request to the response event.",
           "type": "string"
+        },
+        "customContext": {
+          "$ref": "#/definitions/CustomContext"
+        }
+      }
+    },
+    "CustomContext": {
+      "type": "object",
+      "properties": {
+        "voipHeaders": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "sipHeaders": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
         }
       }
     },
@@ -2576,15 +2604,8 @@
     "useSchemePrefix": false,
     "parameters": [
       {
-            "name": "endpoint",
-            "description": "The endpoint of the Azure Communication resource.",
-            "required": true,
-            "type": "string",
-            "format": "url",
-            "in": "path",
-            "x-ms-skip-url-encoding": true,
-            "x-ms-parameter-location": "client"
-        }
+        "$ref": "#/parameters/Endpoint"
+      }
     ]
   }
 }
