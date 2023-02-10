@@ -675,12 +675,11 @@
             "type": "string"
           },
           {
-            "name": "removeParticipantsRequest",
+            "name": "removeParticipantRequest",
             "in": "body",
-            "description": "The participants to be removed from the call.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/RemoveParticipantsRequest"
+              "$ref": "#/definitions/RemoveParticipantRequest"
             }
           },
           {
@@ -1875,19 +1874,16 @@
         }
       }
     },
-    "RemoveParticipantsRequest": {
+    "RemoveParticipantRequest": {
       "description": "The remove participant by identifier request.",
       "required": [
-        "participantsToRemove"
+        "participantToRemove"
       ],
       "type": "object",
       "properties": {
-        "participantsToRemove": {
-          "description": "The participants to be removed from the call.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CommunicationIdentifierModel"
-          }
+        "participantToRemove": {
+          "$ref": "#/definitions/CommunicationIdentifierModel",
+          "description": "The participants to be removed from the call."
         },
         "operationContext": {
           "description": "Used by customers when calling mid-call actions to correlate the request to the response event.",
