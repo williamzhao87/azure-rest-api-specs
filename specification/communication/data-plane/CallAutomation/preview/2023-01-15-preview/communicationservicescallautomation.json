@@ -1359,10 +1359,6 @@
           "description": "The server call id.",
           "type": "string"
         },
-        "source": {
-          "$ref": "#/definitions/CallSource",
-          "description": "The source of the call, which is the caller."
-        },
         "targets": {
           "description": "The targets of the call.",
           "type": "array",
@@ -1380,27 +1376,18 @@
         "mediaSubscriptionId": {
           "description": "SubscriptionId for media streaming",
           "type": "string"
-        }
-      }
-    },
-    "CallSource": {
-      "description": "The caller.",
-      "required": [
-        "identifier"
-      ],
-      "type": "object",
-      "properties": {
-        "callerId": {
+        },
+        "sourceCallerIdNumber": {
           "$ref": "#/definitions/PhoneNumberIdentifierModel",
           "description": "The source caller Id, a phone number, that's shown to the PSTN participant being invited.\r\nRequired only when calling a PSTN callee."
         },
-        "displayName": {
-          "description": "Display name of the call if dialing out to a pstn number",
+        "sourceDisplayName": {
+          "description": "Display name of the call if dialing out to a pstn number.",
           "type": "string"
         },
-        "identifier": {
+        "sourceIdentity": {
           "$ref": "#/definitions/CommunicationIdentifierModel",
-          "description": "The identifier of the source of the call"
+          "description": "Source identity."
         }
       }
     },
