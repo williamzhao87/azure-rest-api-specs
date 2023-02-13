@@ -1104,7 +1104,6 @@
       "description": "The request payload for creating the call.",
       "required": [
         "targets",
-        "callSourceIdentifier",
         "callbackUri"
       ],
       "type": "object",
@@ -1482,13 +1481,30 @@
           "$ref": "#/definitions/PhoneNumberIdentifierModel",
           "description": "The caller ID of the transferee when transferring to PSTN."
         },
-        "userToUserInformation": {
-          "description": "The user to user information.",
-          "type": "string"
+        "customContext": {
+          "$ref": "#/definitions/CustomContext",
+          "description": "Used by customer to send custom context to targets"
         },
         "operationContext": {
           "description": "Used by customers when calling mid-call actions to correlate the request to the response event.",
           "type": "string"
+        }
+      }
+    },
+    "CustomContext": {
+      "type": "object",
+      "properties": {
+        "voipHeaders": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "sipHeaders": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
         }
       }
     },
@@ -1836,24 +1852,8 @@
           "type": "string"
         },
         "customContext": {
-          "$ref": "#/definitions/CustomContext"
-        }
-      }
-    },
-    "CustomContext": {
-      "type": "object",
-      "properties": {
-        "voipHeaders": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        },
-        "sipHeaders": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
+          "$ref": "#/definitions/CustomContext",
+          "description": "Used by customer to send custom context to targets"
         }
       }
     },
