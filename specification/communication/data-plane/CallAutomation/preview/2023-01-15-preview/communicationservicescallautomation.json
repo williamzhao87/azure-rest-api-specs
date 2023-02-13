@@ -1123,7 +1123,7 @@
           "description": "Display name of the call if dialing out to a pstn number",
           "type": "string"
         },
-        "callSourceIdentifier": {
+        "sourceIdentity": {
           "$ref": "#/definitions/CommunicationIdentifierModel",
           "description": "The identifier of the source of the call"
         },
@@ -1824,7 +1824,7 @@
       ],
       "type": "object",
       "properties": {
-        "sourceCallerId": {
+        "sourceCallerIdNumber": {
           "$ref": "#/definitions/PhoneNumberIdentifierModel",
           "description": "The source caller Id, a phone number, that's shown to the PSTN participant being invited.\r\nRequired only when inviting a PSTN participant."
         },
@@ -1832,7 +1832,7 @@
           "description": "(Optional) The display name of the source that is associated with this invite operation when\r\nadding a PSTN participant or teams user.  Note: Will not update the display name in the roster.",
           "type": "string"
         },
-        "sourceIdentifier": {
+        "sourceIdentity": {
           "$ref": "#/definitions/CommunicationIdentifierModel",
           "description": "(Optional) The identifier of the source of the call for this invite operation. If SourceDisplayName\r\nis not set, the display name of the source will be used by default when adding a PSTN participant or teams user."
         },
@@ -1909,7 +1909,7 @@
       "type": "object",
       "properties": {
         "targetParticipants": {
-          "description": "Participants to be muted from the call.\r\nOnly ACS Users are supported.",
+          "description": "Participant to be muted from the call.\r\nOnly ACS Users are supported.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/CommunicationIdentifierModel"
@@ -1939,7 +1939,7 @@
       "type": "object",
       "properties": {
         "targetParticipants": {
-          "description": "Participants to be unmuted from the call.\r\nOnly ACS Users are supported.",
+          "description": "Participant to be unmuted from the call.\r\nOnly ACS Users are supported.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/CommunicationIdentifierModel"
@@ -2101,7 +2101,7 @@
         }
       }
     },
-    "AddParticipantsFailed": {
+    "AddParticipantFailed": {
       "description": "The failed to add participants event.",
       "type": "object",
       "properties": {
@@ -2125,12 +2125,9 @@
           "$ref": "#/definitions/ResultInformation",
           "description": "Contains the resulting SIP code/sub-code and message from NGC services."
         },
-        "participants": {
-          "description": "The list of participants in the call.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CommunicationIdentifierModel"
-          }
+        "participant": {
+          "$ref": "#/definitions/CommunicationIdentifierModel",
+          "description": "The list of participants in the call."
         }
       }
     },
@@ -2150,7 +2147,7 @@
         }
       }
     },
-    "AddParticipantsSucceeded": {
+    "AddParticipantSucceeded": {
       "description": "The participants successfully added event.",
       "type": "object",
       "properties": {
@@ -2174,12 +2171,9 @@
           "$ref": "#/definitions/ResultInformation",
           "description": "Contains the resulting SIP code/sub-code and message from NGC services."
         },
-        "participants": {
-          "description": "The list of participants in the call.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CommunicationIdentifierModel"
-          }
+        "participant": {
+          "$ref": "#/definitions/CommunicationIdentifierModel",
+          "description": "The list of participants in the call."
         }
       }
     },
