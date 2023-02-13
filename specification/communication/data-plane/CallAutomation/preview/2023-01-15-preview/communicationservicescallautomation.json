@@ -647,7 +647,7 @@
           "202": {
             "description": "Returns the add participant response.",
             "schema": {
-              "$ref": "#/definitions/AddParticipantsResponse"
+              "$ref": "#/definitions/AddParticipantResponse"
             }
           }
         },
@@ -709,7 +709,7 @@
           "202": {
             "description": "Returns the remove participant response.",
             "schema": {
-              "$ref": "#/definitions/RemoveParticipantsResponse"
+              "$ref": "#/definitions/RemoveParticipantResponse"
             }
           }
         },
@@ -1857,16 +1857,13 @@
         }
       }
     },
-    "AddParticipantsResponse": {
+    "AddParticipantResponse": {
       "description": "The response payload for adding participants to the call.",
       "type": "object",
       "properties": {
-        "participants": {
-          "description": "List of current participants in the call.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CallParticipant"
-          }
+        "participant": {
+          "$ref": "#/definitions/CallParticipant",
+          "description": "List of current participants in the call."
         },
         "operationContext": {
           "description": "The operation context provided by client.",
@@ -1891,7 +1888,7 @@
         }
       }
     },
-    "RemoveParticipantsResponse": {
+    "RemoveParticipantResponse": {
       "description": "The response payload for removing participants of the call.",
       "type": "object",
       "properties": {
