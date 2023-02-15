@@ -665,7 +665,7 @@
         ],
         "summary": "Remove participant from the call using identifier.",
         "description": "Remove participant from the call using identifier.",
-        "operationId": "CallConnection_RemoveParticipants",
+        "operationId": "CallConnection_RemoveParticipant",
         "parameters": [
           {
             "name": "callConnectionId",
@@ -677,6 +677,7 @@
           {
             "name": "removeParticipantRequest",
             "in": "body",
+            "description": "The participant to be removed from the call.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/RemoveParticipantRequest"
@@ -715,7 +716,7 @@
         },
         "x-ms-examples": {
           "Remove participant from the call using identifier.": {
-            "$ref": "./examples/CallConnection_RemoveParticipants.json"
+            "$ref": "./examples/CallConnection_RemoveParticipant.json"
           }
         }
       }
@@ -1906,7 +1907,7 @@
       "type": "object",
       "properties": {
         "targetParticipants": {
-          "description": "Participant to be muted from the call.\r\nOnly ACS Users are supported.",
+          "description": "Participants to be muted from the call.\r\nOnly ACS Users are supported.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/CommunicationIdentifierModel"
@@ -1936,7 +1937,7 @@
       "type": "object",
       "properties": {
         "targetParticipants": {
-          "description": "Participant to be unmuted from the call.\r\nOnly ACS Users are supported.",
+          "description": "Participants to be unmuted from the call.\r\nOnly ACS Users are supported.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/CommunicationIdentifierModel"
@@ -2124,7 +2125,7 @@
         },
         "participant": {
           "$ref": "#/definitions/CommunicationIdentifierModel",
-          "description": "The list of participants in the call."
+          "description": "Participant"
         }
       }
     },
@@ -2170,7 +2171,7 @@
         },
         "participant": {
           "$ref": "#/definitions/CommunicationIdentifierModel",
-          "description": "The list of participants in the call."
+          "description": "Participant"
         }
       }
     },
