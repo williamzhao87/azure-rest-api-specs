@@ -2223,28 +2223,12 @@
     },
     "SendDtmfRequest": {
       "required": [
-        "sendDtmfOptions"
-      ],
-      "type": "object",
-      "properties": {
-        "sendDtmfOptions": {
-          "$ref": "#/definitions/SendDtmfOptions",
-          "description": "Defines options for continuous dtmf recognition."
-        },
-        "operationContext": {
-          "description": "The value to identify context of the operation.",
-          "type": "string"
-        }
-      }
-    },
-    "SendDtmfOptions": {
-      "required": [
         "tones",
-        "targetParticipant"
+		"targetParticipant"
       ],
       "type": "object",
       "properties": {
-        "targetParticipant": {
+		"targetParticipant": {
           "$ref": "#/definitions/CommunicationIdentifierModel",
           "description": "Target participant of Send DTMF tone."
         },
@@ -2254,6 +2238,10 @@
           "items": {
             "$ref": "#/definitions/Tone"
           }
+        }
+        "operationContext": {
+          "description": "The value to identify context of the operation.",
+          "type": "string"
         }
       }
     },
