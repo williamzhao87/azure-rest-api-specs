@@ -1475,7 +1475,7 @@
 		  }
 	   }
 	},
-	"ContinuousDtmfRecognitionReceived":{
+	"ContinuousDtmfRecognitionToneReceived":{
 	   "type":"object",
 	   "properties":{
 		  "toneInfo":{
@@ -1522,7 +1522,7 @@
 		  }
 	   }
 	},
-	"StopContinuousDtmfRecognitionCompleted":{
+	"ContinuousDtmfRecognitionStopped":{
 	   "type":"object",
 	   "properties":{
 		  "callConnectionId":{
@@ -1535,10 +1535,6 @@
 		  },
 		  "correlationId":{
 			 "description":"CorrelationIDforeventtocallcorrelation.AlsocalledChainIdforskypechainID.",
-			 "type":"string"
-		  },
-		  "operationContext":{
-			 "description":"Usedbycustomerswhencallingmid-callactionstocorrelatetherequesttotheresponseevent.",
 			 "type":"string"
 		  },
 		  "resultInformation":{
