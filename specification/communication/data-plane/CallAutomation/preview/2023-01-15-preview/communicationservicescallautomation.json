@@ -1454,7 +1454,7 @@
         }
       }
     },
-"ContinuousDtmfRecognitionToneFailed": {
+	"ContinuousDtmfRecognitionToneFailed": {
       "type": "object",
       "properties": {
         "callConnectionId": {
