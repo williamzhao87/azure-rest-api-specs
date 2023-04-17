@@ -1501,7 +1501,7 @@
 	   }
 	},
 	"ToneInfo":{
-	   "description":"The information about Tone."
+	   "description":"The information about Tone.",
 	   "required":[
 		  "sequenceId",
 		  "tone"
