@@ -1454,96 +1454,96 @@
         }
       }
     },
-	"ContinuousDtmfRecognitionToneFailed":{
-	   "type":"object",
-	   "properties":{
-		  "callConnectionId":{
-			 "description":"Call connection ID.",
-			 "type":"string"
+	"ContinuousDtmfRecognitionToneFailed": {
+	   "type": "object",
+	   "properties": {
+		  "callConnectionId": {
+			 "description": "Call connection ID.",
+			 "type": "string"
 		  },
-		  "serverCallId":{
-			 "description":"Server call ID.",
-			 "type":"string"
+		  "serverCallId": {
+			 "description": "Server call ID.",
+			 "type": "string"
 		  },
-		  "correlationId":{
-			 "description":"Correlation ID for event to call correlation. Also called ChainId for skype chain ID.",
-			 "type":"string"
+		  "correlationId": {
+			 "description": "Correlation ID for event to call correlation. Also called ChainId for skype chain ID.",
+			 "type": "string"
 		  },
-		  "resultInformation":{
-			 "$ref":"#/definitions/ResultInformation",
-			 "description":"Contains the resulting SIP code/sub-code and message from NGC services."
+		  "resultInformation": {
+			 "$ref": "#/definitions/ResultInformation",
+			 "description": "Contains the resulting SIP code/sub-code and message from NGC services."
 		  }
 	   }
 	},
-	"ContinuousDtmfRecognitionToneReceived":{
-	   "type":"object",
-	   "properties":{
-		  "toneInfo":{
-			 "$ref":"#/definitions/ToneInfo",
-			 "description":"The information about Tone."
+	"ContinuousDtmfRecognitionToneReceived": {
+	   "type": "object",
+	   "properties": {
+		  "toneInfo": {
+			 "$ref": "#/definitions/ToneInfo",
+			 "description": "The information about Tone."
 		  },
-		  "callConnectionId":{
-			 "description":"Call connection ID.",
-			 "type":"string"
+		  "callConnectionId": {
+			 "description": "Call connection ID.",
+			 "type": "string"
 		  },
-		  "serverCallId":{
-			 "description":"Server call ID.",
-			 "type":"string"
+		  "serverCallId": {
+			 "description": "Server call ID.",
+			 "type": "string"
 		  },
-		  "correlationId":{
-			 "description":"Correlation ID for event to call correlation. Also called ChainId or skype chain ID.",
-			 "type":"string"
+		  "correlationId": {
+			 "description": "Correlation ID for event to call correlation. Also called ChainId or skype chain ID.",
+			 "type": "string"
 		  },
-		  "resultInformation":{
-			 "$ref":"#/definitions/ResultInformation",
-			 "description":"Contains the resulting SIP code/sub-code and message from NGC services."
+		  "resultInformation": {
+			 "$ref": "#/definitions/ResultInformation",
+			 "description": "Contains the resulting SIP code/sub-code and message from NGC services."
 		  }
 	   }
 	},
-	"ToneInfo":{
-	   "description":"The information about Tone.",
+	"ToneInfo": {
+	   "description": "The information about Tone.",
 	   "required":[
 		  "sequenceId",
 		  "tone"
 	   ],
-	   "type":"object",
-	   "properties":{
-		  "sequenceId":{
-			 "format":"int32",
-			 "description":"The sequence id which can be used to determine if the same tone was played multiple times or if any tones were missed.",
-			 "type":"integer"
+	   "type": "object",
+	   "properties": {
+		  "sequenceId": {
+			 "format": "int32",
+			 "description": "The sequence id which can be used to determine if the same tone was played multiple times or if any tones were missed.",
+			 "type": "integer"
 		  },
-		  "tone":{
-			 "$ref":"#/definitions/Tone"
+		  "tone": {
+			 "$ref": "#/definitions/Tone"
 		  },
-		  "participantId":{
-			 "description":"The id of participant.",
-			 "type":"string"
+		  "participantId": {
+			 "description": "The id of participant.",
+			 "type": "string"
 		  }
 	   }
 	},
-	"ContinuousDtmfRecognitionStopped":{
-	   "type":"object",
-	   "properties":{
-		  "callConnectionId":{
-			 "description":"Call connection ID.",
-			 "type":"string"
+	"ContinuousDtmfRecognitionStopped": {
+	   "type": "object",
+	   "properties": {
+		  "callConnectionId": {
+			 "description": "Call connection ID.",
+			 "type": "string"
 		  },
-		  "serverCallId":{
-			 "description":"Server call ID.",
-			 "type":"string"
+		  "serverCallId": {
+			 "description": "Server call ID.",
+			 "type": "string"
 		  },
-		  "correlationId":{
-			 "description":"Correlation ID for event to call correlation. Also called ChainId for skype chain ID.",
-			 "type":"string"
+		  "correlationId": {
+			 "description": "Correlation ID for event to call correlation. Also called ChainId for skype chain ID.",
+			 "type": "string"
 		  },
 		  "operationContext": {
 			 "description": "Used by customers when calling mid-call actions to correlate the request to the response event.",
 			 "type": "string"
           },
-		  "resultInformation":{
-			 "$ref":"#/definitions/ResultInformation",
-			 "description":"Contains the resulting SIP code/sub-code and message from NGC services."
+		  "resultInformation": {
+			 "$ref": "#/definitions/ResultInformation",
+			 "description": "Contains the resulting SIP code/sub-code and message from NGC services."
 		  }
 	   }
 	}
@@ -2613,7 +2613,7 @@
             "$ref": "#/definitions/CallParticipant"
           }
         },
-        "sequenceNumber":{
+        "sequenceNumber": {
           "format": "int32",
           "description": "Sequence number to indicate order of ParticipantsUpdated events",
           "type": "integer"
