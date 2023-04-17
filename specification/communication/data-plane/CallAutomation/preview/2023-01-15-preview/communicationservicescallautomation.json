@@ -992,8 +992,8 @@
         "tags": [
           "MidConnections"
         ],
-        "summary": "Send DTMF tones.",
-        "description": "Send DTMF tones.",
+        "summary": "Send dtmf tones.",
+        "description": "Send dtmf tones.",
         "operationId": "CallMedia_SendDtmf",
         "parameters": [
           {
@@ -1006,7 +1006,7 @@
           {
             "name": "sendDtmfRequest",
             "in": "body",
-            "description": "The sendDTMF request body.",
+            "description": "The send dtmf request body.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/SendDtmfRequest"
@@ -1018,7 +1018,7 @@
         ],
         "responses": {
           "202": {
-            "description": "Returns the send DTMF response."
+            "description": "Returns the send dtmf response."
           },
           "default": {
             "description": "Error",
@@ -1458,20 +1458,20 @@
 	   "type":"object",
 	   "properties":{
 		  "callConnectionId":{
-			 "description":"CallconnectionID.",
+			 "description":"Call connection ID.",
 			 "type":"string"
 		  },
 		  "serverCallId":{
-			 "description":"ServercallID.",
+			 "description":"Server call ID.",
 			 "type":"string"
 		  },
 		  "correlationId":{
-			 "description":"CorrelationIDforeventtocallcorrelation.AlsocalledChainIdforskypechainID.",
+			 "description":"Correlation ID for event to call correlation. Also called ChainId for skype chain ID.",
 			 "type":"string"
 		  },
 		  "resultInformation":{
 			 "$ref":"#/definitions/ResultInformation",
-			 "description":"ContainstheresultingSIPcode/sub-codeandmessagefromNGCservices."
+			 "description":"Contains the resulting SIP code/sub-code and message from NGC services."
 		  }
 	   }
 	},
@@ -1480,28 +1480,28 @@
 	   "properties":{
 		  "toneInfo":{
 			 "$ref":"#/definitions/ToneInfo",
-			 "description":"InformationaboutTone."
+			 "description":"The information about Tone."
 		  },
 		  "callConnectionId":{
-			 "description":"CallconnectionID.",
+			 "description":"Call connection ID.",
 			 "type":"string"
 		  },
 		  "serverCallId":{
-			 "description":"ServercallID.",
+			 "description":"Server call ID.",
 			 "type":"string"
 		  },
 		  "correlationId":{
-			 "description":"CorrelationIDforeventtocallcorrelation.AlsocalledChainIdorskypechainID.",
+			 "description":"Correlation ID for event to call correlation. Also called ChainId or skype chain ID.",
 			 "type":"string"
 		  },
 		  "resultInformation":{
 			 "$ref":"#/definitions/ResultInformation",
-			 "description":"ContainstheresultingSIPcode/sub-codeandmessagefromNGCservices."
+			 "description":"Contains the resulting SIP code/sub-code and message from NGC services."
 		  }
 	   }
 	},
 	"ToneInfo":{
-	   "description":"Theinformationaboutthetone.",
+	   "description":"The information about Tone."
 	   "required":[
 		  "sequenceId",
 		  "tone"
@@ -1510,14 +1510,14 @@
 	   "properties":{
 		  "sequenceId":{
 			 "format":"int32",
-			 "description":"Thesequenceidwhichcanbeusedtodetermineifthesametonewasplayedmultipletimesorifanytonesweremissed.",
+			 "description":"The sequence id which can be used to determine if the same tone was played multiple times or if any tones were missed.",
 			 "type":"integer"
 		  },
 		  "tone":{
 			 "$ref":"#/definitions/Tone"
 		  },
 		  "participantId":{
-			 "description":"Theidofparticipant.",
+			 "description":"The id of participant.",
 			 "type":"string"
 		  }
 	   }
@@ -1526,20 +1526,24 @@
 	   "type":"object",
 	   "properties":{
 		  "callConnectionId":{
-			 "description":"CallconnectionID.",
+			 "description":"Call connection ID.",
 			 "type":"string"
 		  },
 		  "serverCallId":{
-			 "description":"ServercallID.",
+			 "description":"Server call ID.",
 			 "type":"string"
 		  },
 		  "correlationId":{
-			 "description":"CorrelationIDforeventtocallcorrelation.AlsocalledChainIdforskypechainID.",
+			 "description":"Correlation ID for event to call correlation. Also called ChainId for skype chain ID.",
 			 "type":"string"
 		  },
+		  "operationContext": {
+			 "description": "Used by customers when calling mid-call actions to correlate the request to the response event.",
+			 "type": "string"
+          },
 		  "resultInformation":{
 			 "$ref":"#/definitions/ResultInformation",
-			 "description":"ContainstheresultingSIPcode/sub-codeandmessagefromNGCservices."
+			 "description":"Contains the resulting SIP code/sub-code and message from NGC services."
 		  }
 	   }
 	}
@@ -2050,6 +2054,10 @@
         "targetParticipant": {
           "$ref": "#/definitions/CommunicationIdentifierModel",
           "description": "Target participant of continuous DTMF tone recognition."
+        },
+		"operationContext": {
+          "description": "The value to identify context of the operation.",
+          "type": "string"
         }
       }
     },
